@@ -11,30 +11,19 @@
 <body>
     <div id="gameArea">
         <div id="currentPlayerTurn">
-            <h1>It's X's Turn</h1>
+            <h1 id="playerText">It's X's Turn</h1>
         </div>
 
-        <div id="gameBoard">
-            <div class="gameCell">X</div>
-            <div class="gameCell">O</div>
-            <div class="gameCell"></div>
-            <div class="gameCell"></div>
-            <div class="gameCell"></div>
-            <div class="gameCell"></div>
-            <div class="gameCell"></div>
-            <div class="gameCell"></div>
-            <div class="gameCell"></div>
-        </div>
+        <div id="gameBoard"></div>
 
         <div id="newGameButton">
-            <button class="btn btn-primary newGameBTN">Start New Game</button>
+            <button id="startButton" class="btn btn-primary newGameBTN">Start New Game</button>
         </div>
     </div>
 
 
-
+    <script src="tictactoe.js"></script>
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <script src="tictactoe.js"></script>
 </body>
 </html>
