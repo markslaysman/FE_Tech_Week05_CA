@@ -63,7 +63,6 @@
 	display: grid;
 	justify-content: center;
 	align-content: center;
-	margin-top: 10px;
 }
 
 .newGameBTN:hover {
