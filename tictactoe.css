@@ -1,0 +1,71 @@
+/* Defiing the entire game area to be the full view-width and view-height */
+#gameArea {
+	border: 1px solid black;
+	width: 100vw;
+	height: 100vh;
+	justify-content: center;
+	align-content: center;
+}
+
+/* Banner Bar at top representing current player turn */
+#currentPlayerTurn {
+	display: grid;
+	justify-content: center;
+	align-content: center;
+}
+
+/* The Game Board area */
+#gameBoard {
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	grid-template-columns: repeat(3, auto);
+	margin: 25px 0px;
+}
+
+/* Individual Game Cell Styling */
+.gameCell {
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 90px;
+}
+/* Removing the outside borders of the Game Board */
+/* Top Row of Board */
+.gameCell:first-child,
+.gameCell:nth-child(2),
+.gameCell:nth-child(3) {
+	border-top: none;
+}
+
+/* Left Side of Board */
+.gameCell:nth-child(3n + 1) {
+	border-left: none;
+}
+
+/* Right Side of Board */
+.gameCell:nth-child(3n + 3) {
+	border-right: none;
+}
+
+/* Top Row of Board */
+.gameCell:last-child,
+.gameCell:nth-child(8),
+.gameCell:nth-child(7) {
+	border-bottom: none;
+}
+
+/* Styling/Position of New Game Button */
+#newGameButton {
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	margin-top: 10px;
+}
+
+.newGameBTN:hover {
+	transform: translate3d(2px, -2px, 0);
+}
