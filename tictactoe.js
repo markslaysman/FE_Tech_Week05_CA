@@ -28,9 +28,20 @@ let currentBoard = [null,null,null,null,null,null,null,null,null];
 
 // Grab the New Game button from the DOM
 const newGameButton = document.getElementById('startButton');
-
 // Add an event listener to the New Game button 
 newGameButton.addEventListener('click', newGame);
+
+// Grab the Play Again button from the DOM/Modal
+const playAgainButton = document.getElementById('playAgainButton');
+// Add an event listener to the Play Again button 
+playAgainButton.addEventListener('click', playAgain);
+
+const gameOverModalCloseButton = document.getElementById('gameOverModalCloseButton');
+gameOverModalCloseButton.addEventListener('click', closeGameOverModal);
+
+function closeGameOverModal(){
+    $('#gameOverModal').modal('hide');
+}
 
 // Creating the Tic-Tac-Toe board via JavaScript
 function createBoard() {
@@ -69,16 +80,32 @@ function handleClick(cellClicked) {
     switch(checkGameState()){
         case "WINNER" :
             console.log(currentPlayer + " wins!");
+            gameOver('WINNER');
             break;
         case "DRAW" :
             console.log("It's a Draw");
-            break;
+            gameOver('DRAW');
+             break;
         default:
             console.log("Keep Playing");
             //Switch to next player
             switchCurrentPlayer();
     }
 }
+
+function gameOver(gameOverState) {
+
+    let text = document.getElementById('gameOverText');
+
+    if (gameOverState == 'WINNER') {
+        text.innerText = `${currentPlayer} wins the game`;
+    } else {
+        text.innerText = "No More Moves.  It's a Draw";
+    }
+
+    $('#gameOverModal').modal('show');
+}
+
 
 function checkGameState() {
     //Set current gameState to CONTINUE
@@ -136,6 +163,11 @@ function newGame () {
     updatePlayerText(currentPlayer);
     //Delete values in gameBoard to start fresh
     resetCurrentBoard();
+}
+
+function playAgain(){
+    closeGameOverModal();
+    newGame();
 }
 
 createBoard();
