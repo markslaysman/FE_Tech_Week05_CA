@@ -63,6 +63,14 @@ function createBoard() {
         newCell.setAttribute('id', i);
         //Add event listener to cell for when a user clicks on it.
         newCell.addEventListener('click', handleClick, {once : true});
+
+        let cellText = document.createElement('div');
+        cellText.setAttribute('class', 'gameCellText');
+        //cellText.setAttribute('id', i);
+        //cellText.addEventListener('click', handleClick, {once : true});
+        newCell.appendChild(cellText);
+
+
         //Add the newly created DIV to the DOM
         gameboardDiv.appendChild(newCell);
     }    
@@ -71,7 +79,8 @@ function createBoard() {
 function handleClick(cellClicked) {
 
     //Set clicked game cell to Current Player
-    cellClicked.target.innerText = currentPlayer;
+    //cellClicked.target.innerText = currentPlayer;
+    cellClicked.target.firstChild.innerText = currentPlayer;
 
     //Update currentBoard with most recent click
     currentBoard[cellClicked.target.id] = currentPlayer;
@@ -105,7 +114,6 @@ function gameOver(gameOverState) {
 
     $('#gameOverModal').modal('show');
 }
-
 
 function checkGameState() {
     //Set current gameState to CONTINUE
